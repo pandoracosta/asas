@@ -31,9 +31,26 @@ class _HomePageState extends State<HomePage> {
       // print(height);
       setState(() {
         characterY = initialPos - height;
-        barrierOneX -= 0.05;
-        barrierTwoX -= 0.05;
       });
+
+      setState(() {
+        if(barrierOneX < -2) {
+          barrierOneX += 3.2;
+        } else {
+          barrierOneX -= 0.05;
+        }
+      });
+
+      setState(() {
+        if(barrierTwoX < -2) {
+          barrierTwoX += 3.2;
+        } else {
+          barrierTwoX -= 0.05;
+        }
+      });
+
+
+
       if(characterDied()) {
         timer.cancel();
         gameStarted = false;
